@@ -45,9 +45,30 @@ function compareMoves(from, to) {
     }
 }
 
-let computerMove
-  , playerMove;
+function getYesNo(msg) {
+    while (true) {
+        switch (prompt(msg).toLowerCase()) {
+            case "yes":
+            case "y":
+            case "ok":
+            case "yup":
+            case "yep":
+                return true;
+            case "nope":
+            case "no":
+            case "n":
+                return false;
+            default:
+                alert("Please enter a valid response.");
+        }
+    }
+}
 
-computerMove = getComputerMove();
-playerMove = getPlayerMove();
-compareMoves(playerMove, computerMove);
+let computerMove, playerMove;
+let isPlaying = true;
+while (isPlaying) {
+    computerMove = getComputerMove();
+    playerMove = getPlayerMove();
+    compareMoves(playerMove, computerMove);
+    isPlaying = getYesNo("Do you want to play again?")
+}
