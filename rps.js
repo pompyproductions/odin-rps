@@ -8,18 +8,13 @@ console.log("Floatation device");
 
 const MOVES = ["rock", "paper", "scissors"];
 
-// Math.random() gives a value between 0 and 1
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
-
 function getComputerMove() {
     return getRandomInt(0,2);
 }
 
 function getPlayerMove() {
     while (true) {
-        switch (prompt("What's your next move?").toLowerCase()) {
+        switch (prompt("What's your move?").toLowerCase()) {
             case "r":
             case "rock":
                 return 0;
@@ -38,14 +33,30 @@ function getPlayerMove() {
 function compareMoves(from, to) {
     if (from == to) {
         alert(`A draw! You both picked ${MOVES[from]}.`);
+        return [0, 0];
     } else if (from == (to + 1) % 3) {
         alert(`You win: ${MOVES[from]} beats ${MOVES[to]}.`);
+        return [1, 0];
     } else {
         alert(`You lose: ${MOVES[to]} beats ${MOVES[from]}.`);
+        return [0, 1];
     }
 }
 
-function getYesNo(msg) {
+function game(rounds=5) {
+    let score = [0, 0];
+    for (let i = 0; i < rounds; i++) {
+        computerMove = getComputerMove();
+        playerMove = getPlayerMove();
+        score = scoreUpdate(score, compareMoves(playerMove, computerMove));
+    }
+    alert(`${rounds} rounds of Rock Paper Scissors are over. Final result:
+    Player: ${score[0]} | Computer: ${score[1]}`);
+}
+
+
+// aux functions
+function getInputYesNo(msg) {
     while (true) {
         switch (prompt(msg).toLowerCase()) {
             case "yes":
@@ -64,11 +75,35 @@ function getYesNo(msg) {
     }
 }
 
+function getInputInteger(msg) {
+    let value = prompt(msg);
+    while (isNaN(parseInt(value))) {
+        value = prompt("Please enter a valid number.")
+    }
+    return parseInt(value);
+}
+
+// Math.random() gives a value between 0 and 1
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+// skips NaN values, adds new values to array
+function scoreUpdate(arr1, arr2) {
+    for (let i = 0; i < arr2.length; i++) {
+        if (isNaN(Number(arr2[i]))) {continue};
+        arr1[i] += Number(arr2[i]);
+    }
+    return arr1;
+}
+
+// game variables?
 let computerMove, playerMove;
+
+// game loop
 let isPlaying = true;
 while (isPlaying) {
-    computerMove = getComputerMove();
-    playerMove = getPlayerMove();
-    compareMoves(playerMove, computerMove);
-    isPlaying = getYesNo("Do you want to play again?")
+    game(getInputInteger("How many rounds would you like to play?"));
+    isPlaying = getInputYesNo("Would you like to play again?");
 }
+alert("Thanks for playing, come back anytime!");
