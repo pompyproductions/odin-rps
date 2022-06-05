@@ -13,7 +13,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
-function computerMove() {
+function getComputerMove() {
     return getRandomInt(0,2);
 }
 
@@ -35,4 +35,19 @@ function getPlayerMove() {
     }
 }
 
-getPlayerMove();
+function compareMoves(from, to) {
+    if (from == to) {
+        alert(`A draw! You both picked ${MOVES[from]}.`);
+    } else if (from == (to + 1) % 3) {
+        alert(`You win: ${MOVES[from]} beats ${MOVES[to]}.`);
+    } else {
+        alert(`You lose: ${MOVES[to]} beats ${MOVES[from]}.`);
+    }
+}
+
+let computerMove
+  , playerMove;
+
+computerMove = getComputerMove();
+playerMove = getPlayerMove();
+compareMoves(playerMove, computerMove);
