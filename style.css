@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    overflow: hidden;
 } *, *::before, *::after {
     box-sizing: inherit;
 }
@@ -24,10 +25,13 @@ body {
     transition: background-color 1s;
 }
 
-h1 {
+h1, h2 {
     font-family: "Merriweather", serif;
     font-size: 3.6em;
     font-weight: 900;
+}
+h2 {
+    font-size: 2.4em;
 }
 label, p {
     font-family: "Archivo", sans-serif;
@@ -105,11 +109,19 @@ input[type="text"] {
     opacity: 0;
 }
 
+/* added through js*/
+.flex-row, .flex-column {
+    display: flex;
+    gap: .6em;
+    align-items: flex-start;
+} .flex-column {
+    flex-direction: column;
+}
 
 
 /* responsive */
 
-@media screen and (max-width: 72em) {
+@media (max-width: 72em) {
     body {
         background-color: aquamarine;
     }
@@ -140,11 +152,11 @@ input[type="text"] {
         flex: 0 0 auto;
         align-items: center;
     } #start-game {
-        width: 60vw;
+        width: 75vw;
     }
 }
 
-@media screen and (max-width: 45em) {
+@media (max-width: 45em) {
     body {
         background-color: sandybrown;
         font-size: 82.5%;
