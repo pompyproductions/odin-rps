@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- boilerplate: css and js -->
+    <script>console.log("html head: floatation device")</script>
+    <script src="helper-functions.js"></script>
+    <script src="game.js" defer></script>
+    <script src="scenes.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <script src="rps.js"></script>
 
     <!-- boilerplate: font imports  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +22,7 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div id="welcome">
+    <div class="main-window" data-nextscene="settings">
         <div class="part-big">
             <h1>Rock, Paper, Scissors.</h1>
             <p>Created by: Pompy Productions.</p>

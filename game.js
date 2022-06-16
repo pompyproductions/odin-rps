@@ -1,5 +1,3 @@
-console.log("Floatation device");
-
 // CONSIDER:
 // using 0,1,2 instead of r,p,s
 // player move index == computer move index -> draw
@@ -7,6 +5,7 @@ console.log("Floatation device");
 // else loss
 
 const MOVES = ["rock", "paper", "scissors"];
+let playerName = "Anonymous";
 
 function getComputerMove() {
     return getRandomInt(0,2);
@@ -96,6 +95,8 @@ function scoreUpdate(arr1, arr2) {
     }
     return arr1;
 }
+
+console.log("game.js: Floatation device");
 
 // game variables?
 let computerMove, playerMove;

@@ -37,21 +37,21 @@ label, p {
     font-synthesis: none;
 }
 
-#welcome {
+.main-window {
     width: 80vw;
     display: flex;
     justify-content: space-between;
     gap: 3em;
     align-items: center;
 } .part-small {
-    flex: 3 1 auto;
+    flex: 3 1 0%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: stretch;
     gap: 1em;
-    height: 8vh;
 } .part-big {
-    flex: 5 0 auto;
+    flex: 5 0 0%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,6 +74,7 @@ input[type="text"] {
     min-width: 12em;
     font-family: "Archivo", sans-serif;
     font-weight: 300;
+    height: 2.4em;
 } button {
     background-color: white;
     border: 1px 1px solid black;
@@ -85,16 +86,36 @@ input[type="text"] {
     flex: 1 0 auto;
 } button:hover {
     background-color: white;
+} #start-game {
+    max-width: 100%;
+    width: auto;
+    min-height: 2.4em;
+    padding: 0.6em;
 }
 
 
+/* special animation stuff */
+
+.main-window {
+    opacity: 0;
+    transition: opacity .5s cubic-bezier(.6, 0, .4, 1);
+} .fade-in {
+    opacity: 1;
+} .fade-out {
+    opacity: 0;
+}
+
+
+
+/* responsive */
 
 @media screen and (max-width: 72em) {
     body {
         background-color: aquamarine;
     }
-    #welcome {
+    .main-window {
         flex-direction: column;
+        justify-content: center;
         width: 100vw;
         height: 100vh;
         gap: 4em;
@@ -111,13 +132,15 @@ input[type="text"] {
         width: 15vw;
     } h1, h2, h3, p, label {
         text-align: center;
+        margin: 0 5em;
+        hyphens: auto;
     } .part-big {
-        flex: 1 0 auto;
-        justify-content: flex-end;
+        flex: 0 0 auto;
     } .part-small {
-        flex: 1 0 auto;
-        justify-content: flex-start;
+        flex: 0 0 auto;
         align-items: center;
+    } #start-game {
+        width: 60vw;
     }
 }
 
