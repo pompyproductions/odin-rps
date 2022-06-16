@@ -20,7 +20,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: whitesmoke;
+    background-color: #eeebeb;
+    transition: background-color 1s;
 }
 
 h1 {
@@ -47,14 +48,14 @@ label, p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: .5em;
+    gap: 1em;
     height: 8vh;
 } .part-big {
     flex: 5 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: .5em;
+    gap: 1em;
 } .divider {
     background-color: black;
     flex: 0 0 2px;
@@ -70,9 +71,20 @@ input[type="text"] {
     flex: 0 0 auto;
     font-size: 1em;
     padding: .6em;
-    width: 12em;
+    min-width: 12em;
     font-family: "Archivo", sans-serif;
     font-weight: 300;
+} button {
+    background-color: white;
+    border: 1px 1px solid black;
+    width: 4em;
+    max-width: 8em;
+    background-color: transparent;
+    border-radius: 2px;
+    font-family: "Archivo", sans-serif;
+    flex: 1 0 auto;
+} button:hover {
+    background-color: white;
 }
 
 
@@ -92,19 +104,19 @@ input[type="text"] {
     } input[type="text"] {
         display: block;
         flex: 0 0 auto;
-        width: 40vw;
+        width: 30vw;
         align-items: center;
         text-align: center;
+    } button {
+        width: 15vw;
     } h1, h2, h3, p, label {
         text-align: center;
     } .part-big {
         flex: 1 0 auto;
         justify-content: flex-end;
-        gap: 1em;
     } .part-small {
         flex: 1 0 auto;
         justify-content: flex-start;
-        gap: 1em;
         align-items: center;
     }
 }
