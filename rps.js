@@ -101,9 +101,9 @@ function scoreUpdate(arr1, arr2) {
 let computerMove, playerMove;
 
 // game loop
-let isPlaying = true;
-while (isPlaying) {
-    game(getInputInteger("How many rounds would you like to play?"));
-    isPlaying = getInputYesNo("Would you like to play again?");
-}
-alert("Thanks for playing, come back anytime!");
+// let isPlaying = true;
+// while (isPlaying) {
+//     game(getInputInteger("How many rounds would you like to play?"));
+//     isPlaying = getInputYesNo("Would you like to play again?");
+// }
+// alert("Thanks for playing, come back anytime!");

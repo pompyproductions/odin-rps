@@ -1,4 +1,117 @@
-body, html {
+html {
+    box-sizing: border-box;
+} *, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
     padding: 0;
     margin: 0;
+    font-size: 100%;
+} h1, h2, h3, p {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+h1 {
+    font-family: "Merriweather", serif;
+    font-size: 3.6em;
+    font-weight: 900;
+}
+label, p {
+    font-family: "Archivo", sans-serif;
+    font-weight: 200;
+    font-size: 1.2em;
+    /* font-style: italic; */
+    font-synthesis: none;
+}
+
+#welcome {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    gap: 3em;
+    align-items: center;
+} .part-small {
+    flex: 3 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5em;
+    height: 8vh;
+} .part-big {
+    flex: 5 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5em;
+} .divider {
+    background-color: black;
+    flex: 0 0 2px;
+    min-height: 80vh;
+    transform: rotate(6deg);
+} .text-submit {
+    display: flex;
+    gap: .75em;
+}
+
+input[type="text"] {
+    display: block;
+    flex: 0 0 auto;
+    font-size: 1em;
+    padding: .6em;
+    width: 12em;
+    font-family: "Archivo", sans-serif;
+    font-weight: 300;
+}
+
+
+
+@media screen and (max-width: 72em) {
+    body {
+        background-color: aquamarine;
+    }
+    #welcome {
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        gap: 4em;
+    } .divider {
+        min-height: 0;
+        min-width: 80vw;
+    } input[type="text"] {
+        display: block;
+        flex: 0 0 auto;
+        width: 40vw;
+        align-items: center;
+        text-align: center;
+    } h1, h2, h3, p, label {
+        text-align: center;
+    } .part-big {
+        flex: 1 0 auto;
+        justify-content: flex-end;
+        gap: 1em;
+    } .part-small {
+        flex: 1 0 auto;
+        justify-content: flex-start;
+        gap: 1em;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 45em) {
+    body {
+        background-color: sandybrown;
+        font-size: 82.5%;
+    }
 }
