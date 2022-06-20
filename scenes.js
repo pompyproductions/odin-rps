@@ -3,27 +3,29 @@ console.log("scenes.js: Floatation device");
 function submitName() {
     const textInput = document.getElementById("name-input").value;
     if (textInput) playerName = textInput;
-    mainWindow.addEventListener("transitionend", nextScene)
-    mainWindow.classList.remove("fade-in");
+    startTransition();
 }
 
 function nextScene() {
     const sceneToLoad = this.getAttribute("data-nextScene");
     console.log(`next scene: ${sceneToLoad}`);
-    this.remove();
+    currentWindow.remove();
     switch (sceneToLoad) {
         case "settings":
-            createWindow("settings");
+            newWindow("settings");
             break;
         case "game":
             alert("create game window");
             break;
     }
-    
 }
 
+function startTransition() {
+    currentWindow.addEventListener("transitionend", nextScene)
+    currentWindow.classList.remove("fade-in");
+}
 
-const mainWindow = document.querySelector(".main-window");
-mainWindow.classList.add("fade-in");
-mainWindow.querySelector("button").addEventListener("click", submitName);
+let currentWindow = document.querySelector(".main-window");
+currentWindow.classList.add("fade-in");
+currentWindow.querySelector("button").addEventListener("click", submitName);
 
